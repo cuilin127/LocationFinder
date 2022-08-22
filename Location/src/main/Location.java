@@ -16,7 +16,7 @@ public class Location {
 
 	public static void main(String[] args) {
 		
-		Place place = getPlace("");
+		Place place = getPlace("Wowkpow, 68 Donald Street");
 		
 		System.out.print(place);
 
@@ -45,7 +45,6 @@ public class Location {
 				} finally {
 					return id;
 				}
-		
 	}
 	public static Place getPlace(String input) {
 		Place place = new Place();
