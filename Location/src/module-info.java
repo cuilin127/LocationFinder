@@ -10,4 +10,5 @@ module Location {
 	requires okio;
 	requires com.google.gson;
 	requires json;
+	requires lombok;
 }
