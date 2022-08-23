@@ -22,7 +22,7 @@ public class Location {
 		int j=0;
 		System.out.println(j);
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("./src/main/data2.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("./src/main/data.txt"));
 
 		      String filename= "./src/main/fullData.txt";
 		
