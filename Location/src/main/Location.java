@@ -16,7 +16,8 @@ public class Location {
 
 	public static void main(String[] args) {
 		
-		Place place = getPlace("The Joint Head Shop Inc. - Assiniboia	420 Centre Street");
+		Place place = getPlace(""
+				);
 		
 		System.out.print(place);
 
@@ -41,8 +42,10 @@ public class Location {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} 
+				} finally {
 					return id;
+				}
+					
 				
 	}
 	public static Place getPlace(String input) {
@@ -71,8 +74,9 @@ public class Location {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}finally {
 					return place;
+				}
 				
 		
 	}
