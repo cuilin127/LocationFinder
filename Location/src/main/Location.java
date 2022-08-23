@@ -1,11 +1,14 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.json.JSONObject;
-
-
-
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -14,14 +17,35 @@ import okhttp3.Response;
 
 public class Location {
 
-	public static void main(String[] args) {
-		
-		Place place = getPlace(""
-				);
-		
-		System.out.print(place);
+	public static void main(String[] args) throws IOException {
 
+		int j=0;
+		System.out.println(j);
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./src/main/data2.txt"));
 
+		      String filename= "./src/main/fullData.txt";
+		
+			  FileWriter fw = new FileWriter(filename,true);
+			  String line = br.readLine();
+		      while(line != null) {
+		    	System.out.println(j);
+		        Place place = getPlace(line);
+		        if(place.lng!=-1.1) {
+		        	fw.write(place.id+"@@"+place.name+"@@"+place.address+"@@"+place.phoneNumber+"@@"+place.website+"@@"+place.lat+"@@"+place.lng+"\n");//appends the string to the file
+				    j++;
+		        }
+			    place = null;
+			    System.gc();
+			    line = br.readLine();
+		      }
+		      br.close();
+		      fw.close();
+		    } catch (Exception e) {
+		      System.out.println("An error occurred.");
+		      System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		      e.printStackTrace();
+		    }	
 	}
 
 	public static String getPlaceId(String input) {
@@ -61,7 +85,7 @@ public class Location {
 				  .build();
 				try {
 					Response response = client.newCall(request).execute();
-					System.out.print(response.peekBody(2048).string());
+					//System.out.print(response.peekBody(2048).string());
 					JSONObject myObject = new JSONObject(response.body().string());
 					place.id = id;
 					place.name = myObject.getJSONObject("result").getString("name");
@@ -77,7 +101,7 @@ public class Location {
 				}finally {
 					return place;
 				}
-				
+
 		
 	}
 

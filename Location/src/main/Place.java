@@ -15,7 +15,7 @@ public class Place {
 	String phoneNumber;
 	String website;
 	double lat;
-	double lng;
+	double lng=-1.1;
 	public String toString() {
 		return "ID: "+this.id+
 				"\nName: " + this.name +
