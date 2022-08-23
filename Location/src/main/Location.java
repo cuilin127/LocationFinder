@@ -16,7 +16,7 @@ public class Location {
 
 	public static void main(String[] args) {
 		
-		Place place = getPlace("Sheridan College");
+		Place place = getPlace("The Joint Head Shop Inc. - Assiniboia	420 Centre Street");
 		
 		System.out.print(place);
 
